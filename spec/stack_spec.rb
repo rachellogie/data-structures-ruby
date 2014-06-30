@@ -26,4 +26,19 @@ describe Stack do
 
     expect(stack.pop).to eq "third"
   end
+
+  it "iterates through the items and returns them in lifo order" do
+    stack = Stack.new
+
+    stack.push("first")
+    stack.push("second")
+    stack.push("third")
+
+    items = []
+    stack.each do |item|
+      items << item
+    end
+
+    expect(items).to eq ["third", "second", "first"]
+  end
 end

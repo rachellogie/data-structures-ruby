@@ -19,4 +19,10 @@ class Stack
   def pop
     @items.pop
   end
+
+  def each(&block)
+    @items.reverse.each do |item|
+      block.call(item)
+    end
+  end
 end

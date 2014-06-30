@@ -25,4 +25,19 @@ describe Queue do
 
     expect(queue.dequeue).to eq "first"
   end
+
+  it 'the each method returns all the items in FIFO order' do
+    queue = Queue.new
+
+    queue.enqueue("first")
+    queue.enqueue("second")
+    queue.enqueue("third")
+
+    items = []
+    queue.each do |item|
+      items << item
+    end
+
+    expect(items).to eq ["first", "second", "third"]
+  end
 end
